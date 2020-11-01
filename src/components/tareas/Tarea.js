@@ -6,7 +6,7 @@ const Tarea = ({tarea}) => {
         <li className="tarea sombra">
             <p>{tarea.nombre}</p>
 
-            <div class="estado">
+            <div className="estado">
                 {tarea.estado
                 ?
                     (
