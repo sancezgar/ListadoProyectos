@@ -1,28 +1,28 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
 
     //State para iniciar sesion
-    const[usuario, guardarUsuario] = useState({
+    const [usuario, guardarUsuario] = useState({
         email: '',
         password: ''
     })
 
     //extraer de usuario
-    const {email, password} = usuario;
+    const { email, password } = usuario;
 
-    const onChange = e =>{
+    const onChange = e => {
 
         guardarUsuario({
             ...usuario,
-            [e.target.name] : e.target.value
+            [e.target.name]: e.target.value
         })
 
     }
 
     //cuando el usuario quiere iniciar sesion
-    const onSubmit = e =>{
+    const onSubmit = e => {
         e.preventDefault();
 
         //validar que no haya campos vacios
@@ -30,7 +30,7 @@ const Login = () => {
         //pasarlo al accion
     }
 
-    return(
+    return (
         <div className="form-usuario">
             <div className="contenedor-form sombra-dark">
                 <h1>Iniciar Sesión</h1>
@@ -40,7 +40,7 @@ const Login = () => {
                 >
                     <div className="campo-form">
                         <label htmlFor="email">Email</label>
-                        <input 
+                        <input
                             type="email"
                             id="email"
                             name="email"
@@ -52,7 +52,7 @@ const Login = () => {
 
                     <div className="campo-form">
                         <label htmlFor="password">Password</label>
-                        <input 
+                        <input
                             type="password"
                             id="password"
                             name="password"
@@ -63,16 +63,16 @@ const Login = () => {
                     </div>
 
                     <div className="campo-form">
-                        <input type="submit" className="btn btn-primario btn-block"  value="Iniciar Sesión" />
+                        <input type="submit" className="btn btn-primario btn-block" value="Iniciar Sesión" />
                     </div>
 
-                    
+
                 </form>
 
                 <Link to={'/nueva-cuenta'} className="enlace-cuenta">
                     Obtener Cuenta
                 </Link>
-                
+
             </div>
         </div>
     );

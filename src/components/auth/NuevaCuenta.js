@@ -1,10 +1,10 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const NuevaCuenta = () => {
 
     //State para iniciar sesion
-    const[usuario, guardarUsuario] = useState({
+    const [usuario, guardarUsuario] = useState({
         nombre: '',
         email: '',
         password: '',
@@ -12,19 +12,19 @@ const NuevaCuenta = () => {
     })
 
     //extraer de usuario
-    const {nombre, email, password, confirmar} = usuario;
+    const { nombre, email, password, confirmar } = usuario;
 
-    const onChange = e =>{
+    const onChange = e => {
 
         guardarUsuario({
             ...usuario,
-            [e.target.name] : e.target.value
+            [e.target.name]: e.target.value
         })
 
     }
 
     //cuando el usuario quiere iniciar sesion
-    const onSubmit = e =>{
+    const onSubmit = e => {
         e.preventDefault();
 
         //validar que no haya campos vacios
@@ -32,11 +32,11 @@ const NuevaCuenta = () => {
         // password minimo de 6 caracteres
 
         // Los 2 passwords sean iguales
-        
+
         //pasarlo al accion
     }
 
-    return(
+    return (
         <div className="form-usuario">
             <div className="contenedor-form sombra-dark">
                 <h1>Obtener una Cuenta</h1>
@@ -46,7 +46,7 @@ const NuevaCuenta = () => {
                 >
                     <div className="campo-form">
                         <label htmlFor="nombre">Nombre</label>
-                        <input 
+                        <input
                             type="text"
                             id="nombre"
                             name="nombre"
@@ -58,7 +58,7 @@ const NuevaCuenta = () => {
 
                     <div className="campo-form">
                         <label htmlFor="email">Email</label>
-                        <input 
+                        <input
                             type="email"
                             id="email"
                             name="email"
@@ -70,7 +70,7 @@ const NuevaCuenta = () => {
 
                     <div className="campo-form">
                         <label htmlFor="password">Password</label>
-                        <input 
+                        <input
                             type="password"
                             id="password"
                             name="password"
@@ -82,7 +82,7 @@ const NuevaCuenta = () => {
 
                     <div className="campo-form">
                         <label htmlFor="confirmar">Confirmar password</label>
-                        <input 
+                        <input
                             type="password"
                             id="confirmar"
                             name="confirmar"
@@ -93,16 +93,16 @@ const NuevaCuenta = () => {
                     </div>
 
                     <div className="campo-form">
-                        <input type="submit" className="btn btn-primario btn-block"  value="Registrarme" />
+                        <input type="submit" className="btn btn-primario btn-block" value="Registrarme" />
                     </div>
 
-                    
+
                 </form>
 
                 <Link to={'/'} className="enlace-cuenta">
                     Volver a Iniciar Sesión
                 </Link>
-                
+
             </div>
         </div>
     );

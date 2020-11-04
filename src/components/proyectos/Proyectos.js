@@ -5,9 +5,9 @@ import FormTarea from '../tareas/FormTarea';
 import ListadoTareas from '../tareas/ListadoTareas';
 
 const Proyectos = () => {
-    return(
+    return (
         <div className="contenedor-app">
-            
+
             <Sidebar />
 
             <div className="seccion-principal">

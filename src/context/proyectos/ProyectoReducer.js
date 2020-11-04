@@ -7,22 +7,23 @@ import {
     ELIMINAR_PROYECTO
 } from '../../types'
 
+// eslint-disable-next-line
 export default (state, action) => {
 
-    switch(action.type){
+    switch (action.type) {
 
         case FORMULARIO_PROYECTO:
-            return{
+            return {
                 ...state,
                 formulario: true
             }
         case OBTENER_PROYECTOS:
-            return{
+            return {
                 ...state,
                 proyectos: action.payload
             }
         case AGREGAR_PROYECTO:
-            return{
+            return {
                 ...state,
                 proyectos: [
                     ...state.proyectos,
@@ -32,23 +33,23 @@ export default (state, action) => {
                 errorformulario: false
             }
         case VALIDAR_FORMULARIO:
-            return{
+            return {
                 ...state,
                 errorformulario: true
             }
         case PROYECTO_ACTUAL:
-            return{
+            return {
                 ...state,
                 proyecto: state.proyectos.filter(proyecto => proyecto.id === action.payload)
             }
         case ELIMINAR_PROYECTO:
-            return{
+            return {
                 ...state,
                 proyectos: state.proyectos.filter(proyecto => proyecto.id !== action.payload),
                 proyecto: null
             }
 
-        default: 
+        default:
             return state;
 
     }

@@ -1,16 +1,16 @@
-import React from 'react'; 
- 
-const Barra = () => { 
+import React from 'react';
 
-     return (
-         <header className="app-header">
-             <p className="nombre-usuario">Hola <span>Uriel Sánchez</span></p>
+const Barra = () => {
 
-             <nav className="nav-principal">
-                 <a href="#!">Cerrar Sesión</a>
-             </nav>
-         </header>
-     );
+    return (
+        <header className="app-header">
+            <p className="nombre-usuario">Hola <span>Uriel Sánchez</span></p>
+
+            <nav className="nav-principal">
+                <a href="#!">Cerrar Sesión</a>
+            </nav>
+        </header>
+    );
 
 }
 

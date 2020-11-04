@@ -2,23 +2,23 @@ import React, { useReducer } from 'react';
 
 import ProyectoContext from './ProyectoContext';
 import ProyectoReducer from './ProyectoReducer';
-import { 
-        FORMULARIO_PROYECTO, 
-        OBTENER_PROYECTOS,
-        AGREGAR_PROYECTO,
-        VALIDAR_FORMULARIO,
-        PROYECTO_ACTUAL,
-        ELIMINAR_PROYECTO
-       } from '../../types';
+import {
+    FORMULARIO_PROYECTO,
+    OBTENER_PROYECTOS,
+    AGREGAR_PROYECTO,
+    VALIDAR_FORMULARIO,
+    PROYECTO_ACTUAL,
+    ELIMINAR_PROYECTO
+} from '../../types';
 
-import {v4 as uuid} from 'uuid'
+import { v4 as uuid } from 'uuid'
 
 const ProyectoState = props => {
 
     const proyectos = [
-        {id:1, nombre: 'Tienda Virtual'},
-        {id:2, nombre: 'Intranet'},
-        {id:3, nombre: 'Diseño de Sitio Web'}
+        { id: 1, nombre: 'Tienda Virtual' },
+        { id: 2, nombre: 'Intranet' },
+        { id: 3, nombre: 'Diseño de Sitio Web' }
     ]
 
     const initialState = {
@@ -29,10 +29,10 @@ const ProyectoState = props => {
     }
 
     //Dispach para ejecutar las acciones
-    const [state, dispatch] = useReducer(ProyectoReducer,initialState);
+    const [state, dispatch] = useReducer(ProyectoReducer, initialState);
 
     //Serie de funciones para el CRUD
-    const mostrarFormulario =  () => {
+    const mostrarFormulario = () => {
         dispatch({
             type: FORMULARIO_PROYECTO
         })
@@ -49,7 +49,7 @@ const ProyectoState = props => {
     //Agregar nuevo proyecto
     const agregarProyecto = proyecto => {
         proyecto.id = uuid();
-        
+
         //Insetar el proyecto desde un dispatch
         dispatch({
             type: AGREGAR_PROYECTO,
