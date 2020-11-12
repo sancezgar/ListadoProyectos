@@ -1,16 +1,22 @@
 import React, { useContext } from 'react';
 import TareaContext from '../../context/tareas/TareaContext';
+import ProyectoContext from '../../context/proyectos/ProyectoContext';
 
 const Tarea = ({ tarea }) => {
 
+    const proyectoContext = useContext(ProyectoContext);
+    const {proyecto} = proyectoContext;
+
+    const[proyectoActual] = proyecto;
+
     //Utilizar el context de tarea
     const tareaContext = useContext(TareaContext);
-    const { eliminarTarea, obtenerTareas, cambiarEstadoTarea, guardarTareaActual } = tareaContext;
+    const { eliminarTarea, obtenerTareas, actualizarTarea, guardarTareaActual } = tareaContext;
 
     //Funcion que se ejecuta cuando el usuario presiona el boton eliminar tarea
     const tareaEliminar = id => {
-        eliminarTarea(id);
-        obtenerTareas(tarea.proyectoId);
+        eliminarTarea(id, proyectoActual._id);
+        obtenerTareas(proyectoActual._id);
     }
 
     // Funcion que modifica el estado de la tarea
@@ -21,7 +27,7 @@ const Tarea = ({ tarea }) => {
         else {
             tarea.estado = true;
         }
-        cambiarEstadoTarea(tarea);
+        actualizarTarea(tarea);
     }
 
     const seleccionarTarea = tarea => {
@@ -64,7 +70,7 @@ const Tarea = ({ tarea }) => {
                 <button
                     type="button"
                     className="btn btn-secundario"
-                    onClick={() => tareaEliminar(tarea.id)}
+                    onClick={() => tareaEliminar(tarea._id)}
                 >Eliminar</button>
             </div>
         </li>

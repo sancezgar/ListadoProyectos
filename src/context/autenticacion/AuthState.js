@@ -69,7 +69,7 @@ const AuthState = props => {
             })
 
         } catch (error) {
-            console.log(error.response);
+            //console.log(error.response);
             dispatch({
                 type:LOGIN_ERROR
             })
@@ -82,7 +82,7 @@ const AuthState = props => {
         try {
             
             const respuesta = await ClienteAxios.post('api/auth',datos);
-            console.log(respuesta);
+            //console.log(respuesta);
 
             dispatch({
                 type:LOGIN_EXITOSO,
